@@ -1,0 +1,12 @@
+sozcuk = input ('Anlamadığını bilmediğiniz bir kelimeyi yazın büyük harfle yazın')
+sozcuk_dict = {
+            "CRINGE": "Garip ya da utandırıcı bir şey",
+            "LOL": "Komik bir şeye verilen cevap",
+             'Sheesh' : ''Onay vermemek'',
+            
+
+            }
+if  sozcuk in sozcuk_dict.keys():
+    print(sozcuk_dict[sozcuk])
+else:
+    print('Böyle bir kelime yok')
