@@ -1,0 +1,37 @@
+import discord
+
+# ayricaliklar (intents) değişkeni botun ayrıcalıklarını depolayacak
+intents = discord.Intents.default()
+# Mesajları okuma ayrıcalığını etkinleştirelim
+intents.message_content = True
+# client (istemci) değişkeniyle bir bot oluşturalım ve ayrıcalıkları ona aktaralım
+client = discord.Client(intents=intents)
+
+@client.event
+async def on_ready():
+    print(f'{client.user} olarak giriş yaptık.')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    if message.content.startswith('$kirliligi önlemek için napabilirim?'):
+        await message.channel.send("Yere çöt atmayabilir atanları uyarabilirsin")
+    elif message.content.startswith('$bir kirlilik foğrafı at'):
+        await message.channel.send("\U0001f642")
+    else:
+        await message.channel.send(message.content)
+    
+@client.event ()
+async def indir (ctx):
+    with open ('indir/images/indir.png', 'rb') as f:
+        picture = discord.File(f)
+    await ctx.send(file=picture)
+
+@client.event()
+async def random_indir(ctx):
+    memler = os.listdir('indir/images')
+
+    with open (, 'rb') as f:
+        picture = discord.File(f)
+    await ctx.send(file=picture)
